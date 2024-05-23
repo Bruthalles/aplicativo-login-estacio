@@ -1,70 +1,93 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { View,TextInput,  Text,TouchableOpacity,Image, StyleSheet, Platform } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React  from 'react';
+import { useState } from 'react';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View  >
+      <View  style={styles.container}>
+        <Image 
+        style={styles.estacioLogo}
+        source={require("./logo_estacio.jpg")}>
+        </Image>
+        <Text style={styles.titulos}>SIA - Sistemas de Informações Acadêmicas</Text>
+        <Text style={styles.titulos}>Quinta, 23 de maio de 2024</Text>
+        <TouchableOpacity style={styles.btEmail}>     
+        
+        <Text style={styles.txtBtn}>Entrar com email de estudante</Text></TouchableOpacity>  
+        <Text style={{color:"#b5b4b1", margin:18}}>________________________OU________________________</Text>
+        <Text style ={styles.txtCampos}>Matrícula:</Text>
+        <TextInput
+        style ={styles.fields}
+        placeholder='digite sua matrícula...'></TextInput>
+        <Text style={styles.txtLinks}>                          Não sei ou esqueci a matrícula</Text>
+        <Text style ={styles.txtCampos}>Senha:     </Text>
+        <TextInput
+        style ={styles.fields}
+        placeholder='sua senha...'></TextInput>
+        <Text style ={styles.txtLinks}>Esqueci minha senha/Cadastrar primeira senha</Text>
+        <TouchableOpacity style={styles.btnEntrar}>
+          <Text style={styles.txtBtn}>Entrar</Text></TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex:1,
     alignItems: 'center',
-    gap: 8,
+    justifyContent:'center',
+    alignContent:'center',
+    backgroundColor:'white',
+    
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  txtBtn:{
+    color:'white',
+    fontWeight:"bold",
+    alignContent:'center',
   },
-  reactLogo: {
-    height: 178,
+  txtCampos:{
+    paddingRight:240,
+    paddingStart:"2%",
+    fontSize:16,
+  },
+  fields:{
+    backgroundColor:"#cfdefa",
+    borderColor:'#b5b4b1',
+    borderRadius:3,
+    width:300,
+    height:40,
+  },
+  txtLinks:{
+    color:"#05c1ff",
+    fontSize:12,
+    paddingLeft:52,
+  },
+  btnEntrar:{},
+  btEmail:{
+    borderRadius:5,
+    backgroundColor: "#0008ff",
+    marginTop:20,
+    padding:14,
+    width:300,
+    height:50,
+    alignItems:'center',
+    
+    
+  },
+  titulos: {
+
+    color:"#353635",
+    margin:3,
+   
+  },
+  estacioLogo: {
+    height: 170,
     width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+    
+    alignContent:'center',
+  
   },
 });
