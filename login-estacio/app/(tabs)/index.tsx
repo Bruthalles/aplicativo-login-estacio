@@ -17,16 +17,16 @@ export default function HomeScreen() {
         
         <Text style={styles.txtBtn}>Entrar com email de estudante</Text></TouchableOpacity>  
         <Text style={{color:"#b5b4b1", margin:18}}>________________________OU________________________</Text>
-        <Text style ={styles.txtCampos}>Matrícula:</Text>
+        <Text style ={styles.txtMatricula}>Matrícula:</Text>
         <TextInput
         style ={styles.fields}
         placeholder='digite sua matrícula...'></TextInput>
-        <Text style={styles.txtLinks}>                          Não sei ou esqueci a matrícula</Text>
-        <Text style ={styles.txtCampos}>Senha:     </Text>
+        <Text style={styles.linkMatr}>Não sei ou esqueci a matrícula</Text>
+        <Text style ={styles.txtSenha}>Senha:</Text>
         <TextInput
         style ={styles.fields}
         placeholder='sua senha...'></TextInput>
-        <Text style ={styles.txtLinks}>Esqueci minha senha/Cadastrar primeira senha</Text>
+        <Text style ={styles.linkSenha}>Esqueci minha senha/Cadastrar primeira senha</Text>
         <TouchableOpacity style={styles.btnEntrar}>
           <Text style={styles.txtBtn}>Entrar</Text></TouchableOpacity>
       </View>
@@ -48,8 +48,13 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     alignContent:'center',
   },
-  txtCampos:{
+  txtMatricula:{
     paddingRight:240,
+    paddingStart:"2%",
+    fontSize:16,
+  },
+  txtSenha:{
+    paddingRight:260,
     paddingStart:"2%",
     fontSize:16,
   },
@@ -60,10 +65,15 @@ const styles = StyleSheet.create({
     width:300,
     height:40,
   },
-  txtLinks:{
+  linkSenha:{
     color:"#05c1ff",
     fontSize:12,
     paddingLeft:52,
+  },
+  linkMatr:{
+    color:"#05c1ff",
+    fontSize:12,
+    paddingLeft:130,
   },
   btnEntrar:{},
   btEmail:{
